@@ -5,7 +5,7 @@ const base_url = "https://magnificent-ingeborg-lunatictiol-7ffc625e.koyeb.app/"
 
 export const handleAuth = async (email: string, password: string, isRegister: boolean):Promise<AuthResponse> => {
   const endpoint = isRegister
-    ? `${base_url}api/v1/user/register1`
+    ? `${base_url}api/v1/user/register`
     : `${base_url}api/v1/user/login`;
     // Make the API call using axios
     const response = await axios.post(endpoint, { email, password }, {
