@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { AddTaskData, AuthResponse, DashboardData, Task } from '../types/Types';
 
+const base_url = "https://magnificent-ingeborg-lunatictiol-7ffc625e.koyeb.app/"
+
 export const handleAuth = async (email: string, password: string, isRegister: boolean):Promise<AuthResponse> => {
   const endpoint = isRegister
-    ? "http://localhost:8080/api/v1/user/register"
-    : "http://localhost:8080/api/v1/user/login";
+    ? `${base_url}api/v1/user/register1`
+    : `${base_url}api/v1/user/login`;
     // Make the API call using axios
     const response = await axios.post(endpoint, { email, password }, {
       headers: {
@@ -18,7 +20,7 @@ export const handleAuth = async (email: string, password: string, isRegister: bo
 
 export const fetchTasks = async (userId: string,token:string): Promise<Task[]> => {
 
-  const response = await axios.post('http://localhost:8080/api/v1/task/detailed',
+  const response = await axios.post(`${base_url}api/v1/task/detailed`,
      { userId:userId },
   {
     headers: {
@@ -40,7 +42,7 @@ export const fetchTasksFiltered = async (userId: string,token:string,
 
 ): Promise<Task[]> => {
 
-    const response = await axios.post(`http://localhost:8080/api/v1/task/detailed?priority=${priority}&sortField=${sortField}&sortOrder=${sortOrder}&status=${status}`,
+    const response = await axios.post(`${base_url}api/v1/task/detailed?priority=${priority}&sortField=${sortField}&sortOrder=${sortOrder}&status=${status}`,
        { userId:userId },
     {
       headers: {
@@ -58,7 +60,7 @@ export const fetchTasksFiltered = async (userId: string,token:string,
 
 export const fetchDashboardData = async (userId: string,token:string): Promise<DashboardData> => {
 
-    const response = await axios.post('http://localhost:8080/api/v1/task/dashboard',
+    const response = await axios.post(`${base_url}api/v1/task/dashboard`,
        { userId:userId },
     {
       headers: {
@@ -73,7 +75,7 @@ export const fetchDashboardData = async (userId: string,token:string): Promise<D
   };
   export const deleteTasks = async (tasksIds:string[],token:string): Promise<unknown> => {
 
-    const response = await axios.post('http://localhost:8080/api/v1/task/delete',
+    const response = await axios.post(`${base_url}api/v1/task/delete`,
        { tasksIds:tasksIds },
     {
       headers: {
@@ -89,7 +91,7 @@ export const fetchDashboardData = async (userId: string,token:string): Promise<D
 
 export const updateTask= async (taskid: string,update:Partial<Task>,token:string): Promise<Task> =>
   
-    { const response = await axios.patch(`http://localhost:8080/api/v1/task/${taskid}`,
+    { const response = await axios.patch(`${base_url}api/v1/task/${taskid}`,
         update,
      {
        headers: {
@@ -106,7 +108,7 @@ export const updateTask= async (taskid: string,update:Partial<Task>,token:string
 
 export const addTask= async (Task:AddTaskData,token:string): Promise<Task> =>
   
-    { const response = await axios.post('http://localhost:8080/api/v1/task/create',
+    { const response = await axios.post(`${base_url}api/v1/task/create`,
         Task,
      {
        headers: {
