@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
+import { handleAuth } from "../../api/api";
 
 
 const AuthPage: React.FC = () => {
@@ -16,28 +17,11 @@ const AuthPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     setIsLoading(true)
     e.preventDefault();
-    const endpoint = isRegister
-      ? "http://localhost:8080/api/v1/user/register"
-      : "http://localhost:8080/api/v1/user/login";
-
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({email:email,password:password}),
-       
-      }
-    
-    )
-  
-
-      const result = await response.json();
-      const token  = result.token
-      const userId  = result.userId
-
-      console.log(result); // Handle the response
+      const response = await handleAuth(email,password,isRegister)
+      const token  = response.token
+      const userId  = response.userId
+      console.log(response); // Handle the response
       dispatch(login({token:token,userId:userId }));
       setIsLoading(false);
       alert(isRegister ? "Registered Successfully!" : "Logged in Successfully!");

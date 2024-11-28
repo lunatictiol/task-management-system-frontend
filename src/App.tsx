@@ -5,9 +5,9 @@ function App() {
 
 
   return (
-    <>
+    <section className='bg-gradient-to-r from-gradientStart to-gradientEnd'>
       <AppRouter/>
-    </>
+    </section>
   )
 }
 
