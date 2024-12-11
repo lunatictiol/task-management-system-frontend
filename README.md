@@ -21,5 +21,8 @@ A web application built using the MERN stack (MongoDB, Express, React, Node.js) 
 - **Authentication**: JWT (JSON Web Tokens)
 - **State Management**: Redux
 - **Database**: MongoDB
-
+## Images
+![](./img1.png)
+![](./img2.png)
+![](./img3.png)
 
