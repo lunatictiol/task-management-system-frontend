@@ -23,6 +23,5 @@ A web application built using the MERN stack (MongoDB, Express, React, Node.js) 
 - **Database**: MongoDB
 ## Images
 ![](./img1.png)
-![](./img2.png)
 ![](./img3.png)
 
