@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
+Here's a sample README for your Task Management System:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# Task Management System
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A web application built using the MERN stack (MongoDB, Express, React, Node.js) and TypeScript to manage tasks efficiently. Users can create, update, and track tasks in a collaborative environment with secure authentication.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User Authentication**: Secure login and registration using JWT for token-based authentication.
+- **Task Creation & Management**: Create, update, delete, and track tasks with ease.
+- **Real-Time Updates**: Instant task updates using RESTful API and front-end integration.
+- **State Management**: Redux is used for state management to ensure a seamless user experience.
+- **Responsive Design**: Fully responsive UI built with React and styled for mobile and desktop views.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Frontend**: React, TypeScript, Redux
+- **Backend**: Node.js, Express, MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
+- **State Management**: Redux
+- **Database**: MongoDB
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
